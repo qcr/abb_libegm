@@ -207,6 +207,19 @@ message Planned
 
 //======================================================================================================================
 //
+// Custom messages (added 09/03/22)
+//
+//======================================================================================================================
+
+// Message for Force Control (External Force Torque Sensor) - added 09/03/22
+// Note: force size is 6 (linear xyz and rotational xyz)
+message MeasuredForce
+{
+  repeated double force = 1;
+}
+
+//======================================================================================================================
+//
 // Primary messages.
 //
 //======================================================================================================================
@@ -218,6 +231,7 @@ message Input
   optional Feedback feedback = 2;
   optional Planned  planned  = 3;
   optional Status   status   = 4;
+  optional MeasuredForce measuredForce = 5;
 }
 
 // Outputs to send to the robot controller.

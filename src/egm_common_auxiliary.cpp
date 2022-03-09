@@ -906,7 +906,29 @@ bool parse(wrapper::Planned* p_target, const EgmPlanned& source, const RobotAxes
   return success;
 }
 
+bool parse(wrapper::MeasuredForce* p_target, const EgmMeasuredForce& source)
+{
+  bool success = true;
 
+  if (p_target)
+  {
+    p_target->Clear();
+    //Should have 6 values [linear x, linear y, linear z, rot x, rot y, rot z]
+    if (source.force_size() == 6)
+    {
+      for (int i = 0; i < source.force_size(); ++i)
+      {
+        p_target->add_force(source.force(i));
+      }
+    }
+    else
+    {
+      success = false;
+    }
+  }
+
+  return success;
+}
 
 
 /***********************************************************************************************************************
