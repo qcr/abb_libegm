@@ -8,6 +8,14 @@
 
 [![support level: vendor](https://img.shields.io/badge/support%20level-vendor-brightgreen.svg)](http://rosindustrial.org/news/2016/10/7/better-supporting-a-growing-ros-industrial-software-platform)
 
+## QCR Note
+This repository was forked from [ROS Industrial's ABB Libegm](https://github.com/ros-industrial/abb_libegm) package for minor updates towards extracting and publishing force-torque data from an end-effector force-torque module (uses the ABB force control framework).
+
+***Overview of Changes***
+- The egm_wrapper.proto file was updated to expose the MeasuredForce message (via EGM) within the input (high-level) protobuf message. 
+- Minor updates to source files were made to then parse these new messages
+- The overall changes made, followed similar instructions to those detailed in this [thread](https://github.com/ros-industrial/abb_libegm/issues/86).
+
 ## Important Notes
 
 RobotWare versions less than `6.07.01` are now incompatible with *abb_libegm* (due to changes in the EGM communication protocol).
